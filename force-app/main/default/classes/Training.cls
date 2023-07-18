@@ -37,5 +37,23 @@ public with sharing class Training
        system.debug(reverseName);
 
     }
+    public static Boolean isPrime(Integer num) {
+        if (num <= 1) {
+            return false;
+        }
     
+        for (Integer i = 2; i <= Math.sqrt(num); i++) {
+            if (Math.mod(num, i) == 0) {
+                return false;
+            }
+        }
+    
+        return true;
+    }
+    public static void findPrimeNumbers() {
+        for (Integer i = 1; i <= 100; i++) {
+            if (isPrime(i)) {
+                System.debug(i);
+            }
+        }
 }
