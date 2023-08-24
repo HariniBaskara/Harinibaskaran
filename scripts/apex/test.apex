@@ -1,2 +1,1 @@
-Training.reverseOrder('harini');
-
+Training.findPrimeNumbers(5);
