@@ -21,8 +21,8 @@ public with sharing class Training
         Integer no=1;
         for (Integer i = 1; i <= rows; i++)
         {
-            for (Integer j = 2; j <= i; j++\
-            )
+            for (Integer j = 2; j <= i; j++)
+            
             {
               System.debug(no);
               no++;
@@ -39,17 +39,16 @@ public with sharing class Training
     {
         for (Integer i = 1; i <= 10; i++) 
         {
-            if (Math.mod(num, 2) == 1) 
+            if (Math.mod(Number, 2) == 1) 
             {
                 system.debug(i);
             }
         }
     }
-    public static Lead createLeadRecord(string lastname,string email,string company)
+    public static Lead (string lastname,string email,string company)
    {
     Lead leadRecordInsert=new Lead(Lastname=lastname,Email=email,Company=company);
-    insert leadRecordofInsert;
-    return leadRecordofInsert;
+   
    }
     public static Lead dobLeadRecord(String lastname , String company, Date dobdate )
         {
@@ -58,20 +57,39 @@ public with sharing class Training
                 Date defaultdate =Date.newInstance(1990,01,01);
                 dobdate=defaultdate;
             }
-            Lead newleadd = new Lead();
-            newleadd.Lastname= lastname;
-            newleadd.Company = company;
-            newleadd.DateofBirth__c = dobdate;
-            insert newleadd;
-            return newleadd;
+            Lead newlead = new Lead();
+            newlead.Lastname= lastname;
+            newlead.Company = company;
+            newlead.DateOfBrith__c = dobdate;
+       
+            return newlead;
         }
+     public static void insertContactWheneverAccountIsCreated(String lastName)
+     {
+      Account newAccountRecord = new Account();
+      newAccountRecord.Name = lastName;
+
+      Contact newContactRecordAssociatedWithAccount = new Contact();
+      newContactRecordAssociatedWithAccount.AccountId = newAccountRecord.Id;
+      newContactRecordAssociatedWithAccount.LastName = lastName;
+      
+
+
+     }
+      public static void createLeadsInBulk(Integer numbers)
+     {
+      List<Lead> listOfLeadThatCreatedInBulk = new List<Lead>();
+      for (Integer i = 1; i <= numbers; i++) 
+      {
+      Lead newLeadRecord = new Lead();
+      newLeadRecord.FirstName='Test';
+      newLeadRecord.LastName = 'Test' + i;
+      newLeadRecord.Company = '4iapps';
+      newLeadRecord.Email='test.test'+i+'@4iapps.com';
+      listOfLeadThatCreatedInBulk.add(newLeadRecord);
+      }
+      system.debug(listOfLeadThatCreatedInBulk);
+      
+
+     }
 }
-
-
-
- 
-
-
-
-
-
