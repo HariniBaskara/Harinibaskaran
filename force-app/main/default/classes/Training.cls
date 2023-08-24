@@ -21,39 +21,57 @@ public with sharing class Training
         Integer no=1;
         for (Integer i = 1; i <= rows; i++)
         {
-            for (Integer j = 2; j <= i; j++)
+            for (Integer j = 2; j <= i; j++\
+            )
             {
               System.debug(no);
               no++;
             }
-
             System.debug('');
         }
     }
     public static void reverseOrder(String name)
-
     {
        string reverseName=name.reverse();
        system.debug(reverseName);
-
     }
-    public static Boolean isPrime(Integer num) {
-        if (num <= 1) {
-            return false;
-        }
-    
-        for (Integer i = 2; i <= Math.sqrt(num); i++) {
-            if (Math.mod(num, i) == 0) {
-                return false;
+    public static void isPrime()   
+    {
+        for (Integer i = 1; i <= 10; i++) 
+        {
+            if (Math.mod(num, 2) == 1) 
+            {
+                system.debug(i);
             }
         }
-    
-        return true;
     }
-    public static void findPrimeNumbers() {
-        for (Integer i = 1; i <= 100; i++) {
-            if (isPrime(i)) {
-                System.debug(i);
+    public static Lead createLeadRecord(string lastname,string email,string company)
+   {
+    Lead leadRecordInsert=new Lead(Lastname=lastname,Email=email,Company=company);
+    insert leadRecordofInsert;
+    return leadRecordofInsert;
+   }
+    public static Lead dobLeadRecord(String lastname , String company, Date dobdate )
+        {
+            if (dobdate==Null) 
+            {
+                Date defaultdate =Date.newInstance(1990,01,01);
+                dobdate=defaultdate;
             }
+            Lead newleadd = new Lead();
+            newleadd.Lastname= lastname;
+            newleadd.Company = company;
+            newleadd.DateofBirth__c = dobdate;
+            insert newleadd;
+            return newleadd;
         }
 }
+
+
+
+ 
+
+
+
+
+
